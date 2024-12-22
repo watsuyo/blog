@@ -1,11 +1,11 @@
-import { posts } from "#site/content";
 import { MDXContent } from "@/components/mdx-components";
 import { notFound } from "next/navigation";
+import { posts } from "#site/content";
 
 import "@/styles/mdx.css";
-import { Metadata } from "next";
-import { siteConfig } from "@/config/site";
 import { Tag } from "@/components/tag";
+import { siteConfig } from "@/config/site";
+import type { Metadata } from "next";
 interface PostPageProps {
   params: {
     slug: string[];
@@ -13,10 +13,8 @@ interface PostPageProps {
 }
 
 async function getPostFromParams(params: PostPageProps["params"]) {
-  const slug = params?.slug?.join("/");
-  const post = posts.find((post) => post.slugAsParams === slug);
-
-  return post;
+  const slug = params.slug.join("/");
+  return posts.find((post) => post.slug === slug);
 }
 
 export async function generateMetadata({
@@ -58,10 +56,8 @@ export async function generateMetadata({
   };
 }
 
-export async function generateStaticParams(): Promise<
-  PostPageProps["params"][]
-> {
-  return posts.map((post) => ({ slug: post.slugAsParams.split("/") }));
+export async function generateStaticParams(): Promise<PostPageProps["params"][]> {
+  return posts.map((post) => ({ slug: [post.slugAsParams] }));
 }
 
 export default async function PostPage({ params }: PostPageProps) {

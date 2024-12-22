@@ -1,10 +1,10 @@
-import { posts } from "#site/content";
 import { PostItem } from "@/components/post-item";
 import { Tag } from "@/components/tag";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { getAllTags, getPostsByTagSlug, sortTagsByCount } from "@/lib/utils";
 import { slug } from "github-slugger";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { posts } from "#site/content";
 
 interface TagPageProps {
   params: {
@@ -33,7 +33,7 @@ export default function TagPage({ params }: TagPageProps) {
   const title = tag.split("-").join(" ");
 
   const allPosts = getPostsByTagSlug(posts, tag);
-  const displayPosts = allPosts.filter(post => post.published);
+  const displayPosts = allPosts.filter((post) => post.published);
   const tags = getAllTags(posts);
   const sortedTags = sortTagsByCount(tags);
 

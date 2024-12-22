@@ -1,13 +1,13 @@
 export const siteConfig = {
-  name: "JollyBlog",
-  url: "https://example.com",
-  description: "Nextjs 14 blog using velite, tailwind and shadcn",
-  author: "JollyCoding",
-  links: {
-    twitter: "https://twitter.com/jollyshopland",
-    github: "https://github.com/jolbol1",
-    personalSite: "https://jamesshopland.com",
-  },
+	name: "watsuyo blog",
+	url: "https://watsuyo.site",
+	description: "Nextjs 14 blog using velite, tailwind and shadcn",
+	author: "watsuyo",
+	links: {
+		twitter: "https://x.com/watsuyo_2",
+		github: "https://github.com/watsuyo",
+		personalSite: "https://watsuyo.site",
+	},
 };
 
 export type SiteConfig = typeof siteConfig;

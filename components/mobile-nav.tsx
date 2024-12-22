@@ -1,13 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
-import { Button } from "./ui/button";
-import { Menu } from "lucide-react";
-import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/navigation";
-import { Icons } from "./icons";
 import { siteConfig } from "@/config/site";
+import { Menu } from "lucide-react";
+import Link, { type LinkProps } from "next/link";
+import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { Icons } from "./icons";
+import { Button } from "./ui/button";
+import { Sheet, SheetContent, SheetTrigger } from "./ui/sheet";
 
 export function MobileNav() {
   const [open, setOpen] = useState(false);
@@ -30,12 +30,6 @@ export function MobileNav() {
           <span className="font-bold">{siteConfig.name}</span>
         </MobileLink>
         <div className="flex flex-col gap-3 mt-3">
-          <MobileLink onOpenChange={setOpen} href="/blog">
-            Blog
-          </MobileLink>
-          <MobileLink onOpenChange={setOpen} href="/about">
-            About
-          </MobileLink>
           <Link target="_blank" rel="noreferrer" href={siteConfig.links.github}>
             GitHub
           </Link>
@@ -44,7 +38,7 @@ export function MobileNav() {
             rel="noreferrer"
             href={siteConfig.links.twitter}
           >
-            Twitter
+            X
           </Link>
         </div>
       </SheetContent>
